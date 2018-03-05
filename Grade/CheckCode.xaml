@@ -1,0 +1,20 @@
+﻿<local:BaseWindow x:Class="Grade.CheckCode"
+                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                  xmlns:local="clr-namespace:Grade"
+                  mc:Ignorable="d"
+        Title="请输入验证码" Height="230" Width="300" WindowStartupLocation="CenterScreen" Icon="./images/edu.png" Style="{StaticResource BaseWindowStyle}">
+    <Grid>
+        <Image Margin="20,20,20,70" x:Name="image"></Image>
+        <TextBlock Text="验证码" Margin="20,150,0,0" Style="{StaticResource TextBlockStyle}" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBlock>
+        <TextBox x:Name="user" Height="30" Width="150" Margin="95,146,0,0" Text="" Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
+        
+        <Button x:Name="submit" FontSize="20" Height="30" Width="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="257,146,0,0" Click="LoginClick" Style="{StaticResource ButtonStyle}">
+            <Button.Content>
+                <Image Source="images/jian.png" Margin="0"></Image>
+            </Button.Content>
+        </Button>
+    </Grid>
+</local:BaseWindow>

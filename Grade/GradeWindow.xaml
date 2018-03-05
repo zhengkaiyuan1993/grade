@@ -1,0 +1,66 @@
+﻿<local:BaseWindow x:Class="Grade.GradeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Grade"
+        mc:Ignorable="d"
+        Title="" Height="768" Width="1366" WindowStartupLocation="CenterScreen" Icon="./images/edu.png" Style="{StaticResource BaseWindowStyle}">
+    <Grid>
+        <DataGrid x:Name="data" Style="{StaticResource DataGridStyleEx}">
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="OverridesDefaultStyle" Value="False"></Setter>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="DataGridRow">
+                                <Grid>
+                                    <Grid.ContextMenu>
+                                        <ContextMenu Style="{StaticResource ContextMenuStyle}">
+                                            <MenuItem x:Name="m1" Header="不参与平均值计算" Click="CutClick" Tag="{Binding}"></MenuItem>
+                                            <MenuItem x:Name="m2" Header="恢复" Click="CancelClick" Tag="{Binding}"></MenuItem>
+                                            <MenuItem Header="成绩模拟" Click="MoniClick" Tag="{Binding}"></MenuItem>
+                                        </ContextMenu>
+                                    </Grid.ContextMenu>
+                                    <Border x:Name="cut" Background="Transparent"></Border>
+                                    <Border x:Name="border" Background="Transparent"></Border>
+                                    <DataGridCellsPresenter ItemsPanel="{TemplateBinding ItemsPanel}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter TargetName="border" Property="Background" Value="#50FFFFFF"></Setter>
+                                    </Trigger>
+                                    <DataTrigger Binding="{Binding Cut}" Value="True">
+                                        <Setter TargetName="cut" Property="Background" Value="#20FF0000"></Setter>
+                                        <Setter TargetName="m1" Property="Visibility" Value="Collapsed"></Setter>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding Cut}" Value="False">
+                                        <Setter TargetName="m2" Property="Visibility" Value="Collapsed"></Setter>
+                                    </DataTrigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="学年" Width="Auto" MinWidth="80" Binding="{Binding Year}" IsReadOnly="True"></DataGridTextColumn>
+                <DataGridTextColumn Header="学期" Width="Auto" MinWidth="80" Binding="{Binding Semester}" IsReadOnly="True"></DataGridTextColumn>
+                <DataGridTextColumn Header="课程代码" Width="Auto" MinWidth="100" Binding="{Binding ClassCode}" IsReadOnly="True"></DataGridTextColumn>
+                <DataGridTextColumn Header="课程名称" Width="Auto" MinWidth="100" Binding="{Binding ClassName}" IsReadOnly="True"></DataGridTextColumn>
+                <DataGridTextColumn Header="课程性质" Width="Auto" MinWidth="100" Binding="{Binding ClassNature}" IsReadOnly="True"></DataGridTextColumn>
+                <DataGridTextColumn Header="课程归属" Width="Auto" MinWidth="100" Binding="{Binding ClassOwnership}" IsReadOnly="True"></DataGridTextColumn>
+                <DataGridTextColumn Header="学分" Width="Auto" MinWidth="80" Binding="{Binding Credit}" IsReadOnly="True"></DataGridTextColumn>
+                <DataGridTextColumn Header="绩点" Width="Auto" MinWidth="80" Binding="{Binding GradePoint}" IsReadOnly="True"></DataGridTextColumn>
+                <DataGridTextColumn Header="成绩" Width="Auto" MinWidth="80" Binding="{Binding Grade}" IsReadOnly="True"></DataGridTextColumn>
+                <DataGridTextColumn Header="辅修标记" Width="Auto" MinWidth="100" Binding="{Binding MinorFlag}" IsReadOnly="True"></DataGridTextColumn>
+                <DataGridTextColumn Header="补考成绩" Width="Auto" MinWidth="100" Binding="{Binding ExaminationGrade}" IsReadOnly="True"></DataGridTextColumn>
+                <DataGridTextColumn Header="重修成绩" Width="Auto" MinWidth="100" Binding="{Binding ReworkGrade}" IsReadOnly="True"></DataGridTextColumn>
+                <DataGridTextColumn Header="学院名称" Width="Auto" MinWidth="100" Binding="{Binding CollegeName}" IsReadOnly="True"></DataGridTextColumn>
+                <DataGridTextColumn Header="备注" Width="Auto" MinWidth="80" Binding="{Binding Note}" IsReadOnly="True"></DataGridTextColumn>
+                <DataGridTextColumn Header="重修标记" Width="Auto" MinWidth="100" Binding="{Binding ReworkFlag}" IsReadOnly="True"></DataGridTextColumn>
+                <DataGridTextColumn Header="课程英文名称" Width="Auto" MinWidth="130" Binding="{Binding ClassEnglishName}" IsReadOnly="True"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</local:BaseWindow>

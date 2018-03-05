@@ -1,0 +1,22 @@
+﻿<Application x:Class="Grade.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="LoginWindow.xaml" ShutdownMode="OnLastWindowClose">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Grade;component/Res/BaseWindow.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Grade;component/Res/Button.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Grade;component/Res/CheckBox.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Grade;component/Res/CirclyWaiting.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Grade;component/Res/ComboBox.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Grade;component/Res/ContextMenu.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Grade;component/Res/DataGrid.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Grade;component/Res/PasswordBox.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Grade;component/Res/RadioButton.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Grade;component/Res/TextBlock.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Grade;component/Res/TextBox.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

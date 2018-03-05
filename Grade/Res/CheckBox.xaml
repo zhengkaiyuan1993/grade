@@ -1,0 +1,63 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="CheckBox" x:Key="CheckBoxStyle">
+        <Setter Property="Background" Value="#252526"></Setter>
+        <Setter Property="BorderThickness" Value="1"></Setter>
+        <Setter Property="BorderBrush" Value="#3F3F46"></Setter>
+        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        <Setter Property="FontSize" Value="15"></Setter>
+        <Setter Property="Padding" Value="0"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type CheckBox}">
+                    <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True" Margin="{TemplateBinding Padding}">
+                        <Image x:Name="image" Source="../images/check.png"></Image>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="False">
+                            <Setter TargetName="image" Property="Visibility" Value="Collapsed"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="CheckBox" x:Key="SwitchStyle">
+        <Setter Property="Background" Value="#3F3F46"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="CheckBox">
+                    <Viewbox>
+                        <Grid>
+                            <Border x:Name="back" Height="40" Width="80" Background="{TemplateBinding Background}" CornerRadius="20"></Border>
+                            <Ellipse x:Name="thumb" Width="34" Height="34" Margin="3,0,0,0" Fill="White" VerticalAlignment="Center" HorizontalAlignment="Left"></Ellipse>
+                        </Grid>
+                    </Viewbox>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Background" Value="#0CAF93"></Setter>
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ThicknessAnimation From="3,0,0,0" To="43,0,0,0" Duration="0:0:0.5"
+                                                                Storyboard.TargetName="thumb"
+                                                                Storyboard.TargetProperty="Margin"></ThicknessAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ThicknessAnimation From="43,0,0,0" To="3,0,0,0" Duration="0:0:0.5"
+                                                                Storyboard.TargetName="thumb"
+                                                                Storyboard.TargetProperty="Margin"></ThicknessAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
